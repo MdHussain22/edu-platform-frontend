@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 60px;
+  background: #1c1d1f;
+  color: white;
+
+}
+
+.nav-buttons button {
+  margin-left: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.nav-buttons button:first-child {
+  background: transparent;
+  color: white;
+  border: 1px solid #444;
+}
+
+
+.signup {
+  background: #a435f0;
+  color: white;
+}
+.hero {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #1c1d1f,
+    #2a2b2e
+  );
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.85;
+}
+
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 60px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.navbar h2 {
+  font-size: 22px;
+  font-weight: 600;
+}
