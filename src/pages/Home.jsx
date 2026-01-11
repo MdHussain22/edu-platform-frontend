@@ -1,26 +1,37 @@
 import "./Home.css";
+import Navbar from "../components/Navbar";
+import CourseCard from "../components/CourseCard";
 
 export default function Home() {
   return (
     <div>
-      <nav className="navbar">
-        <h2>EduPlatform</h2>
-        <div className="nav-buttons">
-          <button>Login</button>
-          <button className="signup">Sign Up</button>
-        </div>
-      </nav>
+      <Navbar />
 
       <section className="hero">
         <h1>Learn Skills That Matter</h1>
         <p>Online courses from real instructors</p>
       </section>
 
-      <section className="courses">
-        <div className="card">Java Basics</div>
-        <div className="card">Web Development</div>
-        <div className="card">SQL for Beginners</div>
+      <section className="section">
+        <h2>Featured Courses</h2>
+
+        <div className="courses">
+          <CourseCard
+            title="Java Basics"
+            description="Start your programming journey"
+          />
+          <CourseCard
+            title="Web Development"
+            description="HTML, CSS, JavaScript & more"
+          />
+          <CourseCard
+            title="SQL for Beginners"
+            description="Learn databases from scratch"
+          />
+        </div>
       </section>
     </div>
   );
 }
+
+
