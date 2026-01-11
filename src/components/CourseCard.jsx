@@ -1,3 +1,5 @@
+import "./CourseCard.css";
+
 export default function CourseCard({ title, description }) {
   return (
     <div
