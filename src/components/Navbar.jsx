@@ -15,19 +15,13 @@ export default function Navbar() {
       <h3 style={{ margin: 0 }}>EduPlatform</h3>
 
       <div>
-        <Link to="/" style={{ marginRight: 20 }}>
-          Home
-        </Link>
-
-        <Link to="/courses" style={{ marginRight: 20 }}>
-          Courses
-        </Link>
-
-        <Link to="/login">
-          Login
-         
+       
+        <Link to="/" style={{ marginRight: 20 }}>Home</Link>
+<Link to="/courses" style={{ marginRight: 20 }}>Courses</Link>
+<Link to="/dashboard" style={{ marginRight: 20 }}>Dashboard</Link>
+<Link to="/login" style={{ marginRight: 20 }}>Login</Link>
 <Link to="/signup">Sign Up</Link>
-        </Link>
+
       </div>
     </nav>
   );
