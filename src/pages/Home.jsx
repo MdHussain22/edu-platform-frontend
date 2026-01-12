@@ -1,17 +1,20 @@
 import Navbar from "../components/Navbar";
 import CourseCard from "../components/CourseCard";
+import Footer from "../components/Footer";
 import "./Home.css";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Navbar />
 
+      {/* Hero Section */}
       <section className="hero">
         <h1>Learn Skills That Matter</h1>
         <p>Online courses from real instructors</p>
       </section>
 
+      {/* Featured Courses */}
       <section className="section">
         <h2>Featured Courses</h2>
 
@@ -41,9 +44,8 @@ export default function Home() {
           />
         </div>
       </section>
-    </div>
+
+      <Footer />
+    </>
   );
 }
-
-
-
