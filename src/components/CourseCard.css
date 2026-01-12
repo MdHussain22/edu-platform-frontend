@@ -1,5 +1,5 @@
 .course-card {
-  background: #ffffff;
+  background: white;
   border-radius: 16px;
   width: 280px;
   overflow: hidden;
@@ -21,8 +21,8 @@
 }
 
 .course-image span {
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 42px;
+  font-weight: 800;
   color: white;
 }
 
@@ -54,3 +54,4 @@
 .course-btn:hover {
   background: #4338ca;
 }
+

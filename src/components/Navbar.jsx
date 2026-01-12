@@ -1,31 +1,25 @@
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 export default function Navbar() {
   return (
-    <nav
-      style={{
-        padding: "15px 40px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        borderBottom: "1px solid #ddd",
-        backgroundColor: "#ffffff",
-      }}
-    >
-      <h3 style={{ margin: 0 }}>EduPlatform</h3>
+    <nav className="navbar">
+      <div className="logo">EduPlatform</div>
 
-      <div>
-       
-        <Link to="/" style={{ marginRight: 20 }}>Home</Link>
-<Link to="/courses" style={{ marginRight: 20 }}>Courses</Link>
-<Link to="/dashboard" style={{ marginRight: 20 }}>Dashboard</Link>
-<Link to="/login" style={{ marginRight: 20 }}>Login</Link>
-<Link to="/signup">Sign Up</Link>
-
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/courses">Courses</Link>
+        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/signup" className="signup-btn">
+          Sign Up
+        </Link>
       </div>
     </nav>
   );
 }
+
+
 
 
 
