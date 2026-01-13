@@ -9,17 +9,41 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* HERO */}
+      {/* HERO SECTION */}
       <motion.section
         className="hero-neo"
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
-        {/* hero content stays same */}
+        <div className="hero-text">
+          <span className="tag">🔥 Trending Skill</span>
+
+          <h1>
+            MASTER <br />
+            <span>WEB DEVELOPMENT</span>
+          </h1>
+
+          <p>
+            Build real-world projects. Learn skills companies actually hire for.
+          </p>
+
+          <div className="hero-actions">
+            <button className="primary-btn">Start Learning</button>
+            <button className="ghost-btn">Explore Courses</button>
+          </div>
+        </div>
+
+        {/* Floating Card */}
+        <div className="hero-card">
+          <div className="hero-badge">NEW</div>
+          <h3>Full-Stack Web Dev</h3>
+          <p>HTML • CSS • JavaScript • React</p>
+          <strong>₹499</strong>
+        </div>
       </motion.section>
 
-      {/* FEATURED */}
+      {/* FEATURED COURSES */}
       <motion.section
         className="section"
         initial="hidden"
@@ -34,27 +58,45 @@ export default function Home() {
           },
         }}
       >
-        <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+        <motion.h2
+          className="section-title"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+        >
           Featured Paths
         </motion.h2>
 
         <div className="courses">
           {[
-            { tag: "JAVA", title: "Java Mastery", desc: "Backend foundations" },
-            { tag: "PY", title: "Python Pro", desc: "Automation & AI basics" },
-            { tag: "SQL", title: "SQL Zero-to-Hero", desc: "Databases simplified" },
-          ].map((c, i) => (
+            {
+              tag: "JAVA",
+              title: "Java Mastery",
+              desc: "Backend foundations",
+            },
+            {
+              tag: "PY",
+              title: "Python Pro",
+              desc: "Automation & AI basics",
+            },
+            {
+              tag: "SQL",
+              title: "SQL Zero-to-Hero",
+              desc: "Databases simplified",
+            },
+          ].map((course, index) => (
             <motion.div
-              key={i}
+              key={index}
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 visible: { opacity: 1, y: 0 },
               }}
             >
               <CourseCard
-                tag={c.tag}
-                title={c.title}
-                description={c.desc}
+                tag={course.tag}
+                title={course.title}
+                description={course.desc}
               />
             </motion.div>
           ))}
