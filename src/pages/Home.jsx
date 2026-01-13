@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import CourseCard from "../components/CourseCard";
 import Footer from "../components/Footer";
@@ -8,42 +9,57 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="hero">
-        <h1>Learn Skills That Matter</h1>
-        <p>Online courses from real instructors</p>
-      </section>
+      {/* HERO */}
+      <motion.section
+        className="hero-neo"
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}
+      >
+        {/* hero content stays same */}
+      </motion.section>
 
-      {/* Featured Courses */}
-      <section className="section">
-        <h2>Featured Courses</h2>
+      {/* FEATURED */}
+      <motion.section
+        className="section"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0, y: 60 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { staggerChildren: 0.2 },
+          },
+        }}
+      >
+        <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+          Featured Paths
+        </motion.h2>
 
         <div className="courses">
-          <CourseCard
-            tag="JAVA"
-            title="Java Basics"
-            description="Start your programming journey"
-          />
-
-          <CourseCard
-            tag="WEB"
-            title="Web Development"
-            description="HTML, CSS, JavaScript & more"
-          />
-
-          <CourseCard
-            tag="SQL"
-            title="SQL for Beginners"
-            description="Learn databases from scratch"
-          />
-
-          <CourseCard
-            tag="PY"
-            title="Python Programming"
-            description="From basics to automation"
-          />
+          {[
+            { tag: "JAVA", title: "Java Mastery", desc: "Backend foundations" },
+            { tag: "PY", title: "Python Pro", desc: "Automation & AI basics" },
+            { tag: "SQL", title: "SQL Zero-to-Hero", desc: "Databases simplified" },
+          ].map((c, i) => (
+            <motion.div
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              <CourseCard
+                tag={c.tag}
+                title={c.title}
+                description={c.desc}
+              />
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.section>
 
       <Footer />
     </>

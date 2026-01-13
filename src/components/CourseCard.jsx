@@ -1,8 +1,17 @@
+import { motion } from "framer-motion";
 import "./CourseCard.css";
 
 export default function CourseCard({ tag, title, description }) {
   return (
-    <div className="course-card">
+    <motion.div
+      className="course-card"
+      whileHover={{
+        rotateX: 6,
+        rotateY: -6,
+        scale: 1.05,
+      }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
       <div className="course-image">
         <span>{tag}</span>
       </div>
@@ -12,9 +21,10 @@ export default function CourseCard({ tag, title, description }) {
         <p>{description}</p>
         <button className="course-btn">View Course</button>
       </div>
-    </div>
+    </motion.div>
   );
 }
+
 
 
 

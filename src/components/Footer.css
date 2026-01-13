@@ -61,3 +61,26 @@
 .footer-bottom h3 {
   font-weight: 700;
 }
+.course-card {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(99, 102, 241, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}

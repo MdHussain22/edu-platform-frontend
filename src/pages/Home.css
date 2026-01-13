@@ -1,55 +1,126 @@
-.hero {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
+/* HERO – Inspired by Instagram/Webflow motion UI */
+.hero-neo {
+  min-height: 85vh;
+  background: radial-gradient(circle at top left, #6366f1, #0f172a);
   color: white;
-  padding: 100px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  gap: 40px;
+  overflow: hidden;
 }
 
-.hero h1 {
-  font-size: 52px;
-  font-weight: 800;
-  max-width: 700px;
+/* LEFT TEXT */
+.hero-text {
+  max-width: 520px;
+  animation: fadeUp 0.8s ease forwards;
 }
 
-.hero p {
-  margin-top: 12px;
+.hero-text .tag {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.hero-text h1 {
+  font-size: 64px;
+  line-height: 1;
+  margin: 24px 0;
+}
+
+.hero-text h1 span {
+  color: #fde047;
+}
+
+.hero-text p {
   font-size: 18px;
   opacity: 0.9;
 }
 
-.section {
-  padding: 60px 40px;
+/* CTA */
+.hero-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
 }
 
-.section h2 {
-  font-size: 28px;
+.primary-btn {
+  background: #fde047;
+  color: #111;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* RIGHT FLOATING CARD */
+.hero-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 30px;
+  width: 260px;
+  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.hero-badge {
+  background: #22c55e;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
   margin-bottom: 10px;
 }
 
-.courses {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 32px;
-  margin-top: 40px;
-}
-/* Hero animations */
-.hero h1 {
-  animation: fadeUp 0.8s ease forwards;
+.hero-card strong {
+  font-size: 22px;
 }
 
-.hero p {
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 0.15s;
-  opacity: 0;
+/* SECTION */
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
 }
 
+/* ANIMATIONS */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
