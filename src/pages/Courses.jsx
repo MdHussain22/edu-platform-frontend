@@ -1,25 +1,27 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import CourseCard from "../components/CourseCard";
-import courses from "../data/courses";
+import { courses } from "../data/courses";
+import "./Courses.css";
 
 export default function Courses() {
   return (
-    <div>
+    <>
       <Navbar />
 
-      <div style={{ padding: 40 }}>
+      <div className="section">
         <h1>All Courses</h1>
+        <p>Choose a course and start learning today</p>
 
-        <div style={{ display: "flex", gap: 20, marginTop: 20 }}>
+        <div className="courses">
           {courses.map((course) => (
-            <CourseCard
-              key={course.id}
-              title={course.title}
-              description={course.description}
-            />
+            <CourseCard key={course.id} course={course} />
           ))}
         </div>
       </div>
-    </div>
+
+      <Footer />
+    </>
   );
 }
+

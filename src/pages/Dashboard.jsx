@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { courses } from "../data/courses";
 import "./Dashboard.css";
 
 export default function Dashboard() {
@@ -8,41 +9,17 @@ export default function Dashboard() {
       <Navbar />
 
       <div className="dashboard">
-        <h1 className="dash-title">Your Learning Dashboard</h1>
-        <p className="dash-subtitle">
-          Track your progress and continue learning
-        </p>
+        <h1>My Learning</h1>
+        <p>Continue where you left off</p>
 
-        {/* Stats */}
-        <div className="stats">
-          <div className="stat-card">
-            <h2>3</h2>
-            <p>Courses Enrolled</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>45%</h2>
-            <p>Overall Progress</p>
-          </div>
-
-          <div className="stat-card">
-            <h2>12h</h2>
-            <p>Learning Time</p>
-          </div>
-        </div>
-
-        {/* Continue Learning */}
-        <div className="continue">
-          <h2>Continue Learning</h2>
-
-          <div className="continue-card">
-            <div>
-              <h3>Java Basics</h3>
-              <p>Progress: 60%</p>
+        <div className="courses">
+          {courses.slice(0, 2).map((course) => (
+            <div key={course.id} className="course-card">
+              <h3>{course.title}</h3>
+              <p>Progress: 40%</p>
+              <button className="course-btn">Resume</button>
             </div>
-
-            <button>Resume</button>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -50,3 +27,4 @@ export default function Dashboard() {
     </>
   );
 }
+
