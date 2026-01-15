@@ -1,75 +1,100 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Clock, Star } from 'lucide-react';
 
 const CourseCard = ({ course }) => {
   const styles = {
     card: {
-      background: 'white',
-      borderRadius: 'var(--radius)',
-      boxShadow: 'var(--shadow)',
       overflow: 'hidden',
-      transition: 'var(--transition)',
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
+      position: 'relative',
+      transition: '0.4s ease',
+    },
+    imageContainer: {
+      height: '200px',
+      overflow: 'hidden',
+      position: 'relative'
     },
     image: {
       width: '100%',
-      height: '180px',
+      height: '100%',
       objectFit: 'cover',
+      transition: '0.5s ease',
     },
     content: {
-      padding: '1.5rem',
+      padding: '25px',
       display: 'flex',
       flexDirection: 'column',
       flex: 1,
     },
     category: {
-      fontSize: '0.8rem',
-      color: 'var(--primary)',
-      fontWeight: '600',
+      color: '#fca311',
+      fontSize: '0.75rem',
+      fontWeight: '700',
+      letterSpacing: '1px',
       textTransform: 'uppercase',
-      marginBottom: '0.5rem',
+      marginBottom: '10px'
     },
     title: {
-      fontSize: '1.1rem',
+      fontSize: '1.25rem',
       fontWeight: '700',
-      marginBottom: '0.5rem',
-      lineHeight: 1.4,
+      marginBottom: '10px',
+      color: 'white'
     },
-    instructor: {
-      color: 'var(--gray)',
-      fontSize: '0.9rem',
-      marginBottom: '1rem',
-    },
-    footer: {
-      marginTop: 'auto',
+    meta: {
       display: 'flex',
-      justifyContent: 'space-between',
       alignItems: 'center',
-      paddingTop: '1rem',
-      borderTop: '1px solid var(--border)',
-    },
-    price: {
-      fontSize: '1.2rem',
-      fontWeight: '700',
-      color: 'var(--dark)',
+      gap: '15px',
+      color: 'var(--text-muted)',
+      fontSize: '0.85rem',
+      marginBottom: '20px'
     }
   };
 
   return (
-    <div className="course-card" style={styles.card}>
-      <img src={course.image} alt={course.title} style={styles.image} />
+    <div className="glass course-card-hover" style={styles.card}>
+      <div style={styles.imageContainer}>
+        <img src={course.image} alt={course.title} style={styles.image} />
+        <div style={{ 
+          position: 'absolute', 
+          top: '15px', 
+          right: '15px', 
+          background: 'rgba(0,0,0,0.6)', 
+          backdropFilter: 'blur(4px)',
+          padding: '5px 10px', 
+          borderRadius: '8px',
+          fontWeight: 'bold',
+          fontSize: '0.9rem'
+        }}>
+          {course.price}
+        </div>
+      </div>
+      
       <div style={styles.content}>
         <span style={styles.category}>{course.category}</span>
         <h3 style={styles.title}>{course.title}</h3>
-        <p style={styles.instructor}>by {course.instructor}</p>
-        <div style={styles.footer}>
-          <span style={styles.price}>{course.price}</span>
-          <Link to={`/course/${course.id}`} className="btn btn-outline" style={{padding: '5px 15px', fontSize: '0.8rem'}}>
-            View Details
-          </Link>
+        
+        <div style={styles.meta}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Star size={14} color="#fca311" fill="#fca311" /> {course.rating}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+             <Clock size={14} /> 6h 30m
+          </div>
         </div>
+
+        <Link to={`/course/${course.id}`} className="btn" style={{ 
+          marginTop: 'auto', 
+          background: 'rgba(255,255,255,0.1)', 
+          color: 'white', 
+          textAlign: 'center',
+          fontSize: '0.9rem',
+          padding: '10px'
+        }}>
+          View Details
+        </Link>
       </div>
     </div>
   );
