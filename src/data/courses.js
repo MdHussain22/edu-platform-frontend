@@ -1,19 +1,23 @@
 const courses = [
   {
-    id: 1,
-    title: "Java Basics",
-    description: "Start your programming journey",
+    id: "java",
+    title: "Java Mastery",
+    description: "Backend foundations",
+    short: "JAVA"
   },
   {
-    id: 2,
-    title: "Web Development",
-    description: "HTML, CSS, JavaScript & more",
+    id: "python",
+    title: "Python Pro",
+    description: "Automation & AI basics",
+    short: "PY"
   },
   {
-    id: 3,
-    title: "SQL for Beginners",
-    description: "Learn databases from scratch",
-  },
+    id: "sql",
+    title: "SQL Zero-to-Hero",
+    description: "Databases simplified",
+    short: "SQL"
+  }
 ];
 
 export default courses;
+

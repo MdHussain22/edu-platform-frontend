@@ -17,3 +17,9 @@ a {
 * {
   scroll-behavior: smooth;
 }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, Arial, sans-serif;
+  background: #f8f9fc;
+  color: #111;
+}

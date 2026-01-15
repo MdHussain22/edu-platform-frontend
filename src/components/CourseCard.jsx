@@ -1,30 +1,28 @@
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./CourseCard.css";
 
 export default function CourseCard({ course }) {
-  const navigate = useNavigate();
-
   return (
-    <div className="course-card">
-      <div className="course-image">
-        <span>{course.tag}</span>
-      </div>
-
-      <div className="course-content">
-        <h3>{course.title}</h3>
-        <p>{course.description}</p>
-        <strong>₹{course.price}</strong>
-
-        <button
-          className="course-btn"
-          onClick={() => navigate(`/course/${course.id}`)}
-        >
-          View Course
-        </button>
-      </div>
-    </div>
+    <motion.div
+      className="course-card"
+      whileHover={{
+        scale: 1.05,
+        rotateX: 6,
+        rotateY: -6
+      }}
+      transition={{ type: "spring", stiffness: 200 }}
+    >
+      <div className="card-top">{course.short}</div>
+      <h3>{course.title}</h3>
+      <p>{course.description}</p>
+      <Link to={`/courses/${course.id}`} className="view-btn">
+        View Course
+      </Link>
+    </motion.div>
   );
 }
+
 
 
 

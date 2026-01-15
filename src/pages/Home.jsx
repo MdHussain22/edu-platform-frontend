@@ -1,109 +1,40 @@
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
 import CourseCard from "../components/CourseCard";
-import Footer from "../components/Footer";
+import courses from "../data/courses";
 import "./Home.css";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
-
-      {/* HERO SECTION */}
+      {/* HERO */}
       <motion.section
-        className="hero-neo"
-        initial={{ opacity: 0, y: 50 }}
+        className="hero"
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.8 }}
       >
-        <div className="hero-text">
-          <span className="tag">🔥 Trending Skill</span>
-
-          <h1>
-            MASTER <br />
-            <span>WEB DEVELOPMENT</span>
-          </h1>
-
-          <p>
-            Build real-world projects. Learn skills companies actually hire for.
-          </p>
-
-          <div className="hero-actions">
-            <button className="primary-btn">Start Learning</button>
-            <button className="ghost-btn">Explore Courses</button>
-          </div>
-        </div>
-
-        {/* Floating Card */}
-        <div className="hero-card">
-          <div className="hero-badge">NEW</div>
-          <h3>Full-Stack Web Dev</h3>
-          <p>HTML • CSS • JavaScript • React</p>
-          <strong>₹499</strong>
-        </div>
+        <h1>Learn Skills That Matter</h1>
+        <p>Online courses from real instructors</p>
       </motion.section>
 
-      {/* FEATURED COURSES */}
-      <motion.section
-        className="section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, y: 60 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.2 },
-          },
-        }}
-      >
-        <motion.h2
-          className="section-title"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 },
-          }}
-        >
-          Featured Paths
-        </motion.h2>
-
-        <div className="courses">
-          {[
-            {
-              tag: "JAVA",
-              title: "Java Mastery",
-              desc: "Backend foundations",
-            },
-            {
-              tag: "PY",
-              title: "Python Pro",
-              desc: "Automation & AI basics",
-            },
-            {
-              tag: "SQL",
-              title: "SQL Zero-to-Hero",
-              desc: "Databases simplified",
-            },
-          ].map((course, index) => (
+      {/* COURSES */}
+      <section className="featured">
+        <h2>Featured Courses</h2>
+        <div className="course-grid">
+          {courses.map((course, i) => (
             <motion.div
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
+              key={course.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15 }}
+              viewport={{ once: true }}
             >
-              <CourseCard
-                tag={course.tag}
-                title={course.title}
-                description={course.desc}
-              />
+              <CourseCard course={course} />
             </motion.div>
           ))}
         </div>
-      </motion.section>
-
-      <Footer />
+      </section>
     </>
   );
 }
+
