@@ -1,27 +1,26 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import CourseCard from "../components/CourseCard";
-import { courses } from "../data/courses";
-import "./Courses.css";
+import React from 'react';
+import { courses } from '../data/courses';
+import CourseCard from '../components/CourseCard';
 
-export default function Courses() {
+const Courses = () => {
   return (
-    <>
-      <Navbar />
-
-      <div className="section">
-        <h1>All Courses</h1>
-        <p>Choose a course and start learning today</p>
-
-        <div className="courses">
-          {courses.map((course) => (
+    <div style={{ padding: '3rem 0', minHeight: '80vh' }}>
+      <div className="container">
+        <h2 className="section-title">All Courses</h2>
+        <p style={{ marginBottom: '2rem', color: 'var(--gray)' }}>Browse our extensive catalog of professional skills.</p>
+        
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+          gap: '2rem' 
+        }}>
+          {courses.map(course => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
       </div>
-
-      <Footer />
-    </>
+    </div>
   );
-}
+};
 
+export default Courses;
