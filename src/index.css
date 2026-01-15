@@ -87,3 +87,60 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
 .floating {
   animation: float 6s ease-in-out infinite;
 }
+/* Add to src/index.css */
+@media (max-width: 768px) {
+  /* Fix the Hero Grid */
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Stack the Hero section */
+  section .container {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  /* Adjust the massive background text */
+  h1[style*="20vw"] {
+    font-size: 15rem !important; /* Smaller on mobile */
+    top: 20% !important;
+  }
+
+  /* Hide complex floating elements on mobile to save performance */
+  .floating {
+    animation: none; /* Stop animation to save battery */
+  }
+  
+  /* Make the floating card static and centered */
+  .glass.floating {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 40px;
+  }
+}
+/* Update the hover effect in index.css */
+.course-card-hover {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; /* Bouncy physics */
+}
+
+.course-card-hover:hover {
+  transform: translateY(-10px) scale(1.02); /* Slight scale up */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Deeper shadow */
+  border-color: rgba(255,255,255,0.4); /* Brighter border */
+}
+
+.course-card-hover:hover .image {
+  transform: scale(1.1); /* Zoom image inside */
+}
+.glass {
+  /* Add a dark fallback color for better contrast */
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.1), 
+    rgba(255, 255, 255, 0.05)
+  );
+  /* This creates a darker "shade" behind the glass */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
+}
