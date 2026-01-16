@@ -51,5 +51,33 @@ const Login = () => {
 };
 
 export default Login;
+const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(''); // Clear previous errors
 
+    try {
+        // Updated URL to point to Spring Boot
+        const response = await fetch('http://localhost:8080/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.status === "Success") {
+            console.log("Login Success:", data);
+            // Save user to storage if needed
+            // localStorage.setItem("user", JSON.stringify(data.user));
+            navigate('/dashboard');
+        } else {
+            setError(data.message || 'Invalid email or password');
+        }
+    } catch (err) {
+        console.error("Connection Error:", err);
+        setError('Failed to connect to server. Is Spring Boot running?');
+    }
+  };
 
