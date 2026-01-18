@@ -144,3 +144,38 @@ a { text-decoration: none; color: inherit; transition: 0.3s; }
   /* This creates a darker "shade" behind the glass */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
 }
+/* Dashboard Interactions */
+.course-row:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+/* NAVBAR RESPONSIVENESS */
+@media (max-width: 900px) {
+  /* Hide the search bar on tablets/phones */
+  .nav-search {
+    display: none !important;
+  }
+  
+  /* Hide desktop menu items */
+  .desktop-menu {
+    display: none !important;
+  }
+
+  /* Show the hamburger menu icon */
+  .mobile-toggle {
+    display: block !important;
+    cursor: pointer;
+  }
+}
+
+/* Hover Effect for Nav Links */
+.desktop-menu a:hover {
+  color: #fca311 !important;
+}
+
+/* Focus Effect for Search */
+.nav-search:focus-within {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #fca311 !important;
+  box-shadow: 0 0 15px rgba(252, 163, 17, 0.2);
+}
