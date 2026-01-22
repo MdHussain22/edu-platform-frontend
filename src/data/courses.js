@@ -10,16 +10,10 @@ export const courses = [
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
     category: "Development",
     description: "Master React, Node.js, and modern database technologies in this comprehensive bootcamp.",
-    learningPoints: [
-      "Build 5 real-world web applications",
-      "Master React.js and Spring Boot",
-      "Deploy apps to AWS and Vercel",
-      "Understand System Design concepts"
-    ],
+    learningPoints: ["Build 5 real apps", "Master React & Spring Boot", "Deploy to AWS", "System Design"],
     syllabus: [
-      { week: "Week 1", topic: "Introduction to Web", content: ["HTML5 & CSS3 Mastery", "Flexbox & Grid", "Building a Portfolio"] },
-      { week: "Week 2", topic: "JavaScript Deep Dive", content: ["ES6+ Features", "Async/Await", "DOM Manipulation"] },
-      { week: "Week 3", topic: "React Framework", content: ["Components & Props", "Hooks (useState, useEffect)", "State Management"] }
+      { week: "Week 1", topic: "Fundamentals", content: ["HTML5 & CSS3", "JavaScript Basics", "Git & GitHub"] },
+      { week: "Week 2", topic: "React.js", content: ["Components", "Hooks", "State Management"] }
     ]
   },
   {
@@ -32,17 +26,28 @@ export const courses = [
     reviews: 850,
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80",
     category: "Design",
-    description: "Learn how to design beautiful interfaces and user experiences using Figma and Adobe XD.",
-    learningPoints: [
-      "Master Figma shortcuts and plugins",
-      "Create high-fidelity prototypes",
-      "Understand Color Theory & Typography",
-      "Hand off designs to developers"
-    ],
+    description: "Learn how to design beautiful interfaces and user experiences using Figma.",
+    learningPoints: ["Master Figma", "Prototyping", "Color Theory", "Design Systems"],
     syllabus: [
-      { week: "Module 1", topic: "Design Fundamentals", content: ["Wireframing", "Color Psychology", "Typography Rules"] },
-      { week: "Module 2", topic: "Figma Mastery", content: ["Auto Layout", "Components & Variants", "Prototyping"] }
+      { week: "Module 1", topic: "Intro to Design", content: ["Typography", "Color Theory", "Layouts"] },
+      { week: "Module 2", topic: "Figma Deep Dive", content: ["Auto Layout", "Components", "Smart Animate"] }
+    ]
+  },
+  {
+    id: 3,
+    title: "Data Science with Python",
+    instructor: "Dr. Angela Yu",
+    role: "Lead Data Scientist",
+    price: "$94.99",
+    rating: 4.7,
+    reviews: 900,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    category: "Data Science",
+    description: "From Pandas to Machine Learning, start your career as a Data Scientist today.",
+    learningPoints: ["Python Mastery", "Pandas & NumPy", "Machine Learning", "Data Visualization"],
+    syllabus: [
+        { week: "Week 1", topic: "Python Basics", content: ["Variables", "Loops", "Functions"] },
+        { week: "Week 2", topic: "Data Analysis", content: ["Pandas", "Matplotlib", "Seaborn"] }
     ]
   }
-  // Add more courses if you like...
 ];

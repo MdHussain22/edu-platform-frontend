@@ -1,26 +1,19 @@
 :root {
-  /* Modern Palette - Deep Space & Neon */
-  --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  --glass-bg: rgba(255, 255, 255, 0.05);
+  /* Brand Colors - Deep Space & Neon Amber */
+  --bg-gradient: radial-gradient(circle at top right, #1a1a40, #0f0c29);
+  --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.2);
+  --accent: #fca311;
   --text-main: #ffffff;
   --text-muted: #a0a0c0;
-  --accent: #fca311; /* Bright Amber for pop, similar to the mango vibe */
-  --accent-glow: 0 0 20px rgba(252, 163, 17, 0.4);
-  
-  --radius: 24px; /* Super soft corners */
-  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --danger: #ff6b6b;
+  --success: #00b894;
+  --radius: 16px;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
 
 body {
-  font-family: 'Outfit', sans-serif;
   background: var(--bg-gradient);
   color: var(--text-main);
   min-height: 100vh;
@@ -28,154 +21,62 @@ body {
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
 
-/* The Glassmorphism Effect Class */
+/* Utilities */
+.container { max-width: 1400px; margin: 0 auto; padding: 0 25px; }
+
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--card-shadow);
   border-radius: var(--radius);
 }
 
-.container {
-  max-width: 1400px; /* Wider for modern feel */
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-/* Modern Buttons */
 .btn {
-  padding: 14px 32px;
-  border-radius: 50px; /* Pill shape */
-  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .btn-primary {
   background: var(--accent);
   color: #000;
-  box-shadow: var(--accent-glow);
+  box-shadow: 0 0 15px rgba(252, 163, 17, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 0 40px rgba(252, 163, 17, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(252, 163, 17, 0.5);
 }
 
 .section-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
+  margin-bottom: 1rem;
   background: linear-gradient(to right, #fff, #a0a0c0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 2rem;
 }
 
-/* Floating Animation Keyframes */
-@keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(2deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
-}
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.5s ease-out forwards; }
 
-.floating {
-  animation: float 6s ease-in-out infinite;
-}
-/* Add to src/index.css */
-@media (max-width: 768px) {
-  /* Fix the Hero Grid */
-  .container {
-    padding: 0 20px;
-  }
-  
-  /* Stack the Hero section */
-  section .container {
-    grid-template-columns: 1fr !important;
-    text-align: center;
-  }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+.floating { animation: float 6s ease-in-out infinite; }
 
-  /* Adjust the massive background text */
-  h1[style*="20vw"] {
-    font-size: 15rem !important; /* Smaller on mobile */
-    top: 20% !important;
-  }
-
-  /* Hide complex floating elements on mobile to save performance */
-  .floating {
-    animation: none; /* Stop animation to save battery */
-  }
-  
-  /* Make the floating card static and centered */
-  .glass.floating {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    margin-top: 40px;
-  }
-}
-/* Update the hover effect in index.css */
-.course-card-hover {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease; /* Bouncy physics */
-}
-
-.course-card-hover:hover {
-  transform: translateY(-10px) scale(1.02); /* Slight scale up */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Deeper shadow */
-  border-color: rgba(255,255,255,0.4); /* Brighter border */
-}
-
-.course-card-hover:hover .image {
-  transform: scale(1.1); /* Zoom image inside */
-}
-.glass {
-  /* Add a dark fallback color for better contrast */
-  background: linear-gradient(
-    135deg, 
-    rgba(255, 255, 255, 0.1), 
-    rgba(255, 255, 255, 0.05)
-  );
-  /* This creates a darker "shade" behind the glass */
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); 
-}
-/* Dashboard Interactions */
-.course-row:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-}
-/* NAVBAR RESPONSIVENESS */
+/* Responsive Adjustments */
 @media (max-width: 900px) {
-  /* Hide the search bar on tablets/phones */
-  .nav-search {
-    display: none !important;
-  }
-  
-  /* Hide desktop menu items */
-  .desktop-menu {
-    display: none !important;
-  }
-
-  /* Show the hamburger menu icon */
-  .mobile-toggle {
-    display: block !important;
-    cursor: pointer;
-  }
-}
-
-/* Hover Effect for Nav Links */
-.desktop-menu a:hover {
-  color: #fca311 !important;
-}
-
-/* Focus Effect for Search */
-.nav-search:focus-within {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: #fca311 !important;
-  box-shadow: 0 0 15px rgba(252, 163, 17, 0.2);
+  .nav-search, .desktop-menu { display: none !important; }
+  .mobile-toggle { display: block !important; }
+  h1 { font-size: 2.5rem !important; }
 }
